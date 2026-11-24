@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101D35">
+  <meta name="description" content="VISA CONNECT - Votre accompagnement pour les démarches de visa.">
+  <title>VISA CONNECT | Accompagnement Visa</title>
+
+  <style>
+    :root {
+      --navy: #101D35;
+      --gold: #D7B978;
+      --white: #FFFFFF;
+      --gray: #F3F5F8;
+      --text: #29364A;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 20px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #101D35, #243B5C);
+      color: white;
+      padding: 90px 7%;
+      text-align: center;
+    }
+
+    .hero .tag {
+      color: var(--gold);
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      margin: 20px auto;
+      max-width: 800px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 30px;
+      color: #DCE3EE;
+      font-size: 17px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 14px 27px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 65px 7%;
+      text-align: center;
+    }
+
+    .section h2 {
+      color: var(--navy);
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: #718096;
+      margin-bottom: 35px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .service {
+      padding: 28px 20px;
+      background: var(--gray);
+      border-radius: 9px;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .service .icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .service h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      color: #667085;
+      font-size: 14px;
+    }
+
+    .contact {
+      background: var(--gray);
+      padding: 55px 7%;
+      text-align: center;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #DCE3EE;
+      padding: 25px 7%;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media(max-width: 600px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 13px;
+      }
+
+      .hero {
+        padding: 65px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">VISA <span>CONNECT</span></div>
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="accueil">
+    <div class="tag">VOTRE PARTENAIRE VOYAGE</div>
+    <h1>Votre projet de voyage commence ici.</h1>
+    <p>
+      Bénéficiez d'un accompagnement personnalisé
+      dans la préparation de vos démarches de visa.
+      Votre voyage mérite une préparation professionnelle.
+    </p>
+    <a href="#services" class="btn">Découvrir nos services</a>
+  </section>
+
+  <section class="section" id="services">
+    <h2>Nos services</h2>
+    <p class="subtitle">
+      Des solutions adaptées à vos projets de voyage.
+    </p>
+
+    <div class="services">
+      <article class="service">
+        <div class="icon">🌍</div>
+        <h3>Conseil visa</h3>
+        <p>Informations et orientation selon votre destination.</p>
+      </article>
+
+      <article class="service">
+        <div class="icon">📁</div>
+        <h3>Préparation du dossier</h3>
+        <p>Accompagnement dans la préparation des documents.</p>
+      </article>
+
+      <article class="service">
+        <div class="icon">📋</div>
+        <h3>Suivi personnalisé</h3>
+        <p>Suivi de l'avancement de votre dossier.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Parlons de votre projet</h2>
+    <p class="subtitle">
+      Contactez VISA CONNECT pour préparer votre voyage.
+    </p>
+    <a href="mailto:contact@visa-connect.tn" class="btn">
+      Nous contacter
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 VISA CONNECT. Tous droits réservés.</p>
+  <p>Service privé d'accompagnement administratif.
+  Aucune garantie d'obtention de visa.</p>
+</footer>
+
+</body>
+</html>
