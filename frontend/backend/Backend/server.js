@@ -11,6 +11,8 @@ app.use(express.json());
 const healthRoute = require("./routes/health");
 
 app.use("/api/health", healthRoute);
+const clientsRoute = require("./routes/clients");
+app.use("/api/clients", clientsRoute);
 
 app.get("/", (req, res) => {
   res.json({
