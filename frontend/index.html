@@ -1,4 +1,7 @@
-
+<head>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#101D35">
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -176,7 +179,14 @@
     }
   </style>
 </head>
-
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .catch(error => console.error("PWA error:", error));
+  });
+}
+</script>
 <body>
 
 <header>
