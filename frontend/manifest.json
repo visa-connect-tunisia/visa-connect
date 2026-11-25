@@ -1,6 +1,7 @@
 
+
 {
-  "id": "/",
+  "id": "./",
   "name": "VISA CONNECT",
   "short_name": "VISA CONNECT",
   "description": "Votre partenaire pour les démarches de visa.",
@@ -11,6 +12,7 @@
   "background_color": "#101D35",
   "theme_color": "#101D35",
   "lang": "fr",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "icon.svg",
