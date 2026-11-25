@@ -1,0 +1,20 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="100"
+        fill="#101D35"/>
+  <circle cx="256" cy="220" r="125"
+          fill="none" stroke="#D7B978"
+          stroke-width="12"/>
+  <path d="M155 220h202M256 119v202"
+        stroke="#D7B978" stroke-width="8"
+        stroke-linecap="round"/>
+  <path d="M256 95l-28 125 28 125 28-125z"
+        fill="#D7B978"/>
+  <text x="256" y="405"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="52"
+        font-weight="bold"
+        fill="#FFFFFF">VC</text>
+</svg>
