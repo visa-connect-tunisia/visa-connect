@@ -1,3 +1,4 @@
+JavaScript
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -7,9 +8,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const healthRoute = require("./routes/health");
+
+app.use("/api/health", healthRoute);
+
 app.get("/", (req, res) => {
   res.json({
-    message: "Bienvenue sur VISA CONNECT",
+    application: "VISA CONNECT",
     status: "API opérationnelle"
   });
 });
