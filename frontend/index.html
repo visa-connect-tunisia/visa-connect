@@ -1,19 +1,19 @@
-<head>
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#101D35">
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101D35">
-  <meta name="description" content="VISA CONNECT - Votre accompagnement pour les démarches de visa.">
-  <title>VISA CONNECT | Accompagnement Visa</title>
+  <meta name="description" content="VISA CONNECT : conseil et accompagnement administratif pour la préparation de vos dossiers de visa.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <title>VISA CONNECT | Votre projet de voyage commence ici</title>
 
   <style>
     :root {
       --navy: #101D35;
+      --navy-light: #243B5C;
       --gold: #D7B978;
       --white: #FFFFFF;
       --gray: #F3F5F8;
@@ -26,6 +26,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, sans-serif;
       color: var(--text);
@@ -36,7 +40,7 @@
     header {
       background: var(--navy);
       color: white;
-      padding: 20px 7%;
+      padding: 18px 7%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -56,7 +60,7 @@
 
     nav {
       display: flex;
-      gap: 22px;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
@@ -66,14 +70,18 @@
       font-size: 14px;
     }
 
+    nav a:hover {
+      color: var(--gold);
+    }
+
     .hero {
-      background: linear-gradient(135deg, #101D35, #243B5C);
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
       color: white;
       padding: 90px 7%;
       text-align: center;
     }
 
-    .hero .tag {
+    .tag {
       color: var(--gold);
       letter-spacing: 3px;
       font-size: 12px;
@@ -83,12 +91,12 @@
     .hero h1 {
       font-size: clamp(32px, 5vw, 52px);
       margin: 20px auto;
-      max-width: 800px;
+      max-width: 850px;
       line-height: 1.2;
     }
 
     .hero p {
-      max-width: 650px;
+      max-width: 680px;
       margin: 0 auto 30px;
       color: #DCE3EE;
       font-size: 17px;
@@ -104,12 +112,17 @@
       font-weight: bold;
     }
 
+    .btn:hover {
+      opacity: 0.9;
+    }
+
     .section {
       padding: 65px 7%;
       text-align: center;
     }
 
-    .section h2 {
+    .section h2,
+    .contact h2 {
       color: var(--navy);
       font-size: 30px;
       margin-bottom: 12px;
@@ -120,38 +133,54 @@
       margin-bottom: 35px;
     }
 
-    .services {
+    .services,
+    .destinations,
+    .steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 22px;
     }
 
-    .service {
+    .service,
+    .destination,
+    .step {
       padding: 28px 20px;
       background: var(--gray);
       border-radius: 9px;
       border-bottom: 3px solid var(--gold);
     }
 
-    .service .icon {
+    .icon {
       font-size: 32px;
       margin-bottom: 12px;
     }
 
-    .service h3 {
+    .service h3,
+    .destination h3,
+    .step h3 {
       color: var(--navy);
       margin-bottom: 10px;
     }
 
-    .service p {
+    .service p,
+    .destination p,
+    .step p {
       color: #667085;
       font-size: 14px;
     }
 
+    .destinations-section {
+      background: var(--gray);
+    }
+
     .contact {
       background: var(--gray);
-      padding: 55px 7%;
+      padding: 60px 7%;
       text-align: center;
+    }
+
+    .contact p {
+      margin-bottom: 22px;
     }
 
     footer {
@@ -160,6 +189,10 @@
       padding: 25px 7%;
       text-align: center;
       font-size: 13px;
+    }
+
+    footer p {
+      margin: 5px 0;
     }
 
     @media(max-width: 600px) {
@@ -176,37 +209,42 @@
       .hero {
         padding: 65px 6%;
       }
+
+      .section {
+        padding: 50px 6%;
+      }
     }
   </style>
 </head>
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js")
-      .catch(error => console.error("PWA error:", error));
-  });
-}
-</script>
+
 <body>
 
 <header>
   <div class="logo">VISA <span>CONNECT</span></div>
+
   <nav>
     <a href="#accueil">Accueil</a>
     <a href="#services">Services</a>
+    <a href="#destinations">Destinations</a>
+    <a href="#methode">Notre méthode</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <main>
+
   <section class="hero" id="accueil">
     <div class="tag">VOTRE PARTENAIRE VOYAGE</div>
+
     <h1>Votre projet de voyage commence ici.</h1>
+
     <p>
       Bénéficiez d'un accompagnement personnalisé
       dans la préparation de vos démarches de visa.
-      Votre voyage mérite une préparation professionnelle.
+      Votre dossier, notre expertise. Votre voyage,
+      votre destination.
     </p>
+
     <a href="#services" class="btn">Découvrir nos services</a>
   </section>
 
@@ -217,42 +255,157 @@ if ("serviceWorker" in navigator) {
     </p>
 
     <div class="services">
+
       <article class="service">
         <div class="icon">🌍</div>
         <h3>Conseil visa</h3>
-        <p>Informations et orientation selon votre destination.</p>
+        <p>Informations et orientation selon votre destination et votre situation.</p>
       </article>
 
       <article class="service">
         <div class="icon">📁</div>
         <h3>Préparation du dossier</h3>
-        <p>Accompagnement dans la préparation des documents.</p>
+        <p>Accompagnement dans la préparation et la vérification des documents.</p>
       </article>
 
       <article class="service">
         <div class="icon">📋</div>
         <h3>Suivi personnalisé</h3>
-        <p>Suivi de l'avancement de votre dossier.</p>
+        <p>Organisation et suivi de votre prestation à chaque étape.</p>
       </article>
+
+      <article class="service">
+        <div class="icon">🎯</div>
+        <h3>Préparation à l'entretien</h3>
+        <p>Conseils pour préparer votre entretien et présenter clairement votre situation.</p>
+      </article>
+
+      <article class="service">
+        <div class="icon">🔎</div>
+        <h3>Analyse de refus</h3>
+        <p>Examen des motifs de refus et conseils sur les points à améliorer.</p>
+      </article>
+
+      <article class="service">
+        <div class="icon">👨‍👩‍👧</div>
+        <h3>Visites familiales</h3>
+        <p>Accompagnement administratif pour vos projets de visite familiale.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section destinations-section" id="destinations">
+    <h2>Nos destinations</h2>
+    <p class="subtitle">
+      Des conseils adaptés aux procédures de chaque destination.
+    </p>
+
+    <div class="destinations">
+
+      <article class="destination">
+        <div class="icon">🇪🇺</div>
+        <h3>Espace Schengen</h3>
+        <p>France, Italie, Allemagne, Espagne et autres pays.</p>
+      </article>
+
+      <article class="destination">
+        <div class="icon">🇨🇦</div>
+        <h3>Canada</h3>
+        <p>Visites touristiques et familiales.</p>
+      </article>
+
+      <article class="destination">
+        <div class="icon">🇬🇧</div>
+        <h3>Royaume-Uni</h3>
+        <p>Informations et préparation des dossiers.</p>
+      </article>
+
+      <article class="destination">
+        <div class="icon">🇺🇸</div>
+        <h3>États-Unis</h3>
+        <p>Conseils pour les démarches de visa.</p>
+      </article>
+
+      <article class="destination">
+        <div class="icon">🇹🇷</div>
+        <h3>Turquie</h3>
+        <p>Orientation selon votre situation et votre voyage.</p>
+      </article>
+
+      <article class="destination">
+        <div class="icon">🌏</div>
+        <h3>Autres destinations</h3>
+        <p>Étude de votre demande selon les règles officielles.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" id="methode">
+    <h2>Notre méthode</h2>
+    <p class="subtitle">
+      Un accompagnement simple, clair et personnalisé.
+    </p>
+
+    <div class="steps">
+
+      <article class="step">
+        <div class="icon">1</div>
+        <h3>Votre demande</h3>
+        <p>Vous nous présentez votre projet de voyage.</p>
+      </article>
+
+      <article class="step">
+        <div class="icon">2</div>
+        <h3>Diagnostic</h3>
+        <p>Nous examinons vos besoins et les démarches applicables.</p>
+      </article>
+
+      <article class="step">
+        <div class="icon">3</div>
+        <h3>Accompagnement</h3>
+        <p>Nous vous aidons à préparer votre dossier selon la prestation convenue.</p>
+      </article>
+
+      <article class="step">
+        <div class="icon">4</div>
+        <h3>Finalisation</h3>
+        <p>Vous recevez les éléments préparés et les prochaines étapes.</p>
+      </article>
+
     </div>
   </section>
 
   <section class="contact" id="contact">
     <h2>Parlons de votre projet</h2>
+
     <p class="subtitle">
-      Contactez VISA CONNECT pour préparer votre voyage.
+      Contactez VISA CONNECT pour présenter votre projet de voyage.
     </p>
+
     <a href="mailto:contact@visa-connect.tn" class="btn">
       Nous contacter
     </a>
   </section>
+
 </main>
 
 <footer>
   <p>© 2026 VISA CONNECT. Tous droits réservés.</p>
-  <p>Service privé d'accompagnement administratif.
-  Aucune garantie d'obtention de visa.</p>
+  <p>Service privé de conseil et d'accompagnement administratif.</p>
+  <p>Aucune garantie d'obtention de visa. La décision appartient exclusivement aux autorités compétentes.</p>
 </footer>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./service-worker.js")
+        .catch(error => console.error("PWA error:", error));
+    });
+  }
+</script>
 
 </body>
 </html>
+
