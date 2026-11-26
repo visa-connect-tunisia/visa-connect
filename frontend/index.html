@@ -377,6 +377,68 @@
     </div>
   </section>
 
+<section class="section" id="demande">
+  <h2>Demander un accompagnement</h2>
+  <p class="subtitle">
+    Présentez-nous votre projet de voyage. Notre équipe vous recontactera.
+  </p>
+
+  <form id="visaForm" style="max-width:650px;margin:auto;text-align:left;">
+    <label for="nom">Nom et prénom *</label>
+    <input type="text" id="nom" required
+      placeholder="Votre nom et prénom"
+      style="width:100%;padding:13px;margin:8px 0 18px;border:1px solid #ccc;border-radius:5px;">
+
+    <label for="telephone">Téléphone *</label>
+    <input type="tel" id="telephone" required
+      placeholder="+216 ..."
+      style="width:100%;padding:13px;margin:8px 0 18px;border:1px solid #ccc;border-radius:5px;">
+
+    <label for="destination">Destination souhaitée *</label>
+    <select id="destination" required
+      style="width:100%;padding:13px;margin:8px 0 18px;border:1px solid #ccc;border-radius:5px;">
+      <option value="">Choisir une destination</option>
+      <option>Schengen</option>
+      <option>Canada</option>
+      <option>Royaume-Uni</option>
+      <option>États-Unis</option>
+      <option>Turquie</option>
+      <option>Autre destination</option>
+    </select>
+
+    <label for="typeVisa">Type de visa *</label>
+    <select id="typeVisa" required
+      style="width:100%;padding:13px;margin:8px 0 18px;border:1px solid #ccc;border-radius:5px;">
+      <option value="">Choisir le type de visa</option>
+      <option>Tourisme</option>
+      <option>Visite familiale ou amicale</option>
+      <option>Affaires</option>
+      <option>Études</option>
+      <option>Travail</option>
+      <option>Autre</option>
+    </select>
+
+    <label for="dateVoyage">Date approximative du voyage</label>
+    <input type="date" id="dateVoyage"
+      style="width:100%;padding:13px;margin:8px 0 18px;border:1px solid #ccc;border-radius:5px;">
+
+    <label for="message">Votre message</label>
+    <textarea id="message" rows="4"
+      placeholder="Décrivez brièvement votre projet..."
+      style="width:100%;padding:13px;margin:8px 0 18px;border:1px solid #ccc;border-radius:5px;"></textarea>
+
+    <p style="font-size:13px;color:#667085;margin-bottom:18px;">
+      Les informations saisies seront transmises à VISA CONNECT via WhatsApp.
+      Ne communiquez aucun numéro de passeport ni document bancaire.
+    </p>
+
+    <button type="submit" class="btn"
+      style="border:none;cursor:pointer;font-size:16px;">
+      Envoyer ma demande sur WhatsApp
+    </button>
+  </form>
+</section>
+  
   <section class="contact" id="contact">
     <h2>Parlons de votre projet</h2>
 
@@ -403,6 +465,30 @@
 </footer>
 
 <script>
+  
+document.getElementById("visaForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const nom = document.getElementById("nom").value.trim();
+  const telephone = document.getElementById("telephone").value.trim();
+  const destination = document.getElementById("destination").value;
+  const typeVisa = document.getElementById("typeVisa").value;
+  const dateVoyage = document.getElementById("dateVoyage").value;
+  const message = document.getElementById("message").value.trim();
+
+  const texte =
+    "Bonjour VISA CONNECT, voici ma demande :\n\n" +
+    "Nom : " + nom + "\n" +
+    "Téléphone : " + telephone + "\n" +
+    "Destination : " + destination + "\n" +
+    "Type de visa : " + typeVisa + "\n" +
+    "Date du voyage : " + (dateVoyage || "Non précisée") + "\n" +
+    "Message : " + (message || "Aucun");
+
+  const url = "https://wa.me/21694182441?text=" + encodeURIComponent(texte);
+
+  window.open(url, "_blank");
+});
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       navigator.serviceWorker.register("./service-worker.js")
