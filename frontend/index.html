@@ -1,119 +1,179 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101D35">
-  <meta name="description" content="VISA CONNECT : conseil et accompagnement administratif pour la préparation de vos dossiers de visa.">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <title>VISA CONNECT | Votre projet de voyage commence ici</title>
 
-  <style>
-    :root {
-      --navy: #101D35;
-      --navy-light: #243B5C;
-      --gold: #D7B978;
-      --white: #FFFFFF;
-      --gray: #F3F5F8;
-      --text: #29364A;
-    }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(16, 29, 53, 0.97);
+  backdrop-filter: blur(14px);
+  color: white;
+  padding: 12px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  border-bottom: 1px solid rgba(215,185,120,0.25);
+  box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+.logo img {
+  height: 72px !important;
+  width: auto;
+  transition: transform .35s ease;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+.logo img:hover {
+  transform: scale(1.06);
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.6;
-    }
+nav {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  flex-wrap: wrap;
+}
 
-    header {
-      background: var(--navy);
-      color: white;
-      padding: 18px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+  transition: color .3s ease;
+}
 
-    .logo {
-      font-size: 23px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width .3s ease;
+}
 
-    .logo span {
-      color: var(--gold);
-    }
+nav a:hover {
+  color: var(--gold);
+}
 
-    nav {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+nav a:hover::after {
+  width: 100%;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-    }
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(110deg, rgba(9,20,39,.94), rgba(16,29,53,.72)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=85")
+    center / cover no-repeat;
+  color: white;
+  min-height: 590px;
+  padding: 125px 7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-    nav a:hover {
-      color: var(--gold);
-    }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom: 3px solid var(--gold);
+  pointer-events: none;
+  z-index: -1;
+}
 
-    .hero {
-      background: linear-gradient(135deg, var(--navy), var(--navy-light));
-      color: white;
-      padding: 90px 7%;
-      text-align: center;
-    }
+.tag {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  animation: fadeUp .9s ease both;
+}
 
-    .tag {
-      color: var(--gold);
-      letter-spacing: 3px;
-      font-size: 12px;
-      font-weight: bold;
-    }
+.hero h1 {
+  font-size: clamp(36px, 5.5vw, 62px);
+  margin: 22px auto;
+  max-width: 900px;
+  line-height: 1.15;
+  animation: fadeUp 1s .15s ease both;
+}
 
-    .hero h1 {
-      font-size: clamp(32px, 5vw, 52px);
-      margin: 20px auto;
-      max-width: 850px;
-      line-height: 1.2;
-    }
+.hero p {
+  max-width: 700px;
+  margin: 0 auto 32px;
+  color: #E1E7F0;
+  font-size: 18px;
+  animation: fadeUp 1s .3s ease both;
+}
 
-    .hero p {
-      max-width: 680px;
-      margin: 0 auto 30px;
-      color: #DCE3EE;
-      font-size: 17px;
-    }
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #E8D19A, #C6A45E);
+  color: var(--navy);
+  padding: 15px 29px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
 
-    .btn {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      padding: 14px 27px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(215,185,120,.3);
+}
 
-    .btn:hover {
-      opacity: 0.9;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(max-width: 600px) {
+  header {
+    padding: 12px 5%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .logo img {
+    height: 62px !important;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 520px;
+    padding: 85px 6%;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 15px;
+
     }
 
     .section {
